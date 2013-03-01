@@ -28,7 +28,7 @@ COMMITS_OUTGOING_ADDRESS  = "#{MAIL_USER}+commits@#{MAIL_DOMAIN}"
 REPOS_ROOT = "#{ENV["HOME"]}/barkeep_repos"
 
 # This hostname is used to construct links in the commit emails.
-BARKEEP_HOSTNAME = "localhost:8040"
+BARKEEP_HOSTNAME = "ubuntu:8040"
 
 REDIS_HOST = "localhost"
 REDIS_PORT = 6379
