@@ -6,8 +6,8 @@ require "lib/logging"
 require "lib/ruby_extensions"
 
 class SyntaxHighlighter
-#  WEEK = 60*60*24*7
-WEEK = 1
+  WEEK = 60*60*24*7
+#WEEK = 1
   def initialize(redis = nil)
     @redis = redis
   end
