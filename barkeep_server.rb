@@ -474,6 +474,7 @@ class BarkeepServer < Sinatra::Base
     # Default to only searching master unless branches are explicitly specified.
     options[:branches] = params[:branches].else { "master" }.then { self == "all" ? nil : self }
     saved_search = current_user.new_saved_search(options)
+    #logger.log.info saved_search
     saved_search.save
     erb :_saved_search, :layout => false, :locals => { :current_user => current_user,
       :saved_search => saved_search, :token => nil, :direction => "before", :page_number => 1 }

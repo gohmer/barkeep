@@ -71,7 +71,8 @@ class SavedSearch < Sequel::Model
   end
 
   def self.create_from_search_string(search_string)
-    parts = search_string.split(" ")
+    puts search_string
+    parts = search_string.split(",")
   end
 
   private

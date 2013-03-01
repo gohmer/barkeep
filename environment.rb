@@ -5,8 +5,8 @@ DB_USER = "root"
 DB_PASSWORD = ""
 
 # These are the credentials of the email account that you want to send mail as.
-MAIL_USER = ""
-MAIL_DOMAIN = ""
+MAIL_USER = "admin"
+MAIL_DOMAIN = "mia.com.au"
 
 # These settings are from the Pony documentation and work with Gmail's SMTP TLS server.
 PONY_OPTIONS = {
@@ -17,7 +17,7 @@ PONY_OPTIONS = {
   :password => "",
   :authentication => :plain,
   # the HELO domain provided by the client to the server
-  :domain => "miaccess.local"
+  :domain => "mia.com.au"
 }
 
 REQUESTS_OUTGOING_ADDRESS = "#{MAIL_USER}+requests@#{MAIL_DOMAIN}"
@@ -39,11 +39,21 @@ REDIS_PORT = 6379
 OPENID_PROVIDERS = "https://www.google.com/accounts/o8/ud"
 
 # A list of hashes of LDAP parameters for signing in your users. For documentation, see doc/ldap.markdown.
-LDAP_PROVIDERS = []
+LDAP_PROVIDERS = [{
+      :name => "Active Directory",
+      :host => "dc001.miaccess.local",
+      :port => 389,
+      :base => "OU=Users,OU=MyBusiness,DC=MIACCESS,DC=local",
+      :method => :simple,
+      :uid => "sAMAccountName",
+      :username => "miaroot",
+      :password => "5h3l8yGT!"
+    }]
+#LDAP_PROVIDERS = []
 
 # This is the read-only demo mode which is used in the Barkeep demo linked from getbarkeep.com.
 # Most production deployments will not want to enable the demo mode, but we want it while developing.
-ENABLE_READONLY_DEMO_MODE = true
+ENABLE_READONLY_DEMO_MODE = false 
 
 # If specified, this will be used as the session secret in development mode.
 # This prevents the session being cleared when sinatra reloads changes.

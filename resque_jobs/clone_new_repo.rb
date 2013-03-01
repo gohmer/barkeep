@@ -29,7 +29,10 @@ class CloneNewRepo
       # Grit doesn't raise an exception when it has trouble cloning a repo, so there's no good error feedback.
       FileUtils.mkdir_p(REPOS_ROOT)
       Timeout::timeout(CLONE_TIMEOUT) do
-        run_shell("cd '#{REPOS_ROOT}' && git clone '#{repo_url}' #{repo_name}")
+        git_command = "cd '#{REPOS_ROOT}' && git clone '#{repo_url}' '#{repo_name}'"
+logger.info git_command
+run_shell(git_command)
+#        run_shell("cd '#{REPOS_ROOT}' && git clone '#{repo_url}' '#{repo_name}'")
       end
       logger.info "Finished cloning the repo #{repo_url}."
     rescue Timeout::Error => error

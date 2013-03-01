@@ -6,8 +6,8 @@ require "lib/logging"
 require "lib/ruby_extensions"
 
 class SyntaxHighlighter
-  WEEK = 60*60*24*7
-
+#  WEEK = 60*60*24*7
+WEEK = 1
   def initialize(redis = nil)
     @redis = redis
   end
@@ -36,8 +36,10 @@ class SyntaxHighlighter
   end
 
   def self.pygmentize(file_type, text)
-    file_type = "text" if Pygments::Lexer.find_by_alias(file_type).nil?
-    Pygments.highlight(text, :lexer => file_type, :options => {
+puts file_type
+    file_type = "text" if Pygments::Lexer.find(file_type).nil?
+puts file_type    
+Pygments.highlight(text, :lexer => file_type, :options => {
       :encoding => "utf-8", :nowrap => true, :stripnl => false, :stripall => false
     })
   end
