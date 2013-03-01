@@ -10,14 +10,14 @@ MAIL_DOMAIN = ""
 
 # These settings are from the Pony documentation and work with Gmail's SMTP TLS server.
 PONY_OPTIONS = {
-  :address => "smtp.gmail.com",
+  :address => "exch001.miaccess.local",
   :port => "587",
   :enable_starttls_auto => true,
   :user_name => "#{MAIL_USER}@#{MAIL_DOMAIN}",
   :password => "",
   :authentication => :plain,
   # the HELO domain provided by the client to the server
-  :domain => "localhost.localdomain"
+  :domain => "miaccess.local"
 }
 
 REQUESTS_OUTGOING_ADDRESS = "#{MAIL_USER}+requests@#{MAIL_DOMAIN}"
