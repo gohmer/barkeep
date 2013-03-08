@@ -9,21 +9,13 @@ number of git repos available on the internet. It's designed to be easy to run o
 
 ### Getting started
 
-Since Barkeep is a web app with dependencies like MySQL, Redis, and others, the easiest way to get it
-running quickly is to run it inside a virtual machine using Vagrant:
+If you're ready to install Barkeep, see the
+[Installing Barkeep](https://github.com/ooyala/barkeep/wiki/Installing-Barkeep) wiki page for instructions and
+a one-step shell script.
 
-    $ cd barkeep
-    $ git submodule init && git submodule update
-    $ script/vagrant_quick_start.rb
-
-You will need a few dependencies (like VirtualBox) before you can set up Barkeep inside of Vagrant, but this
-script will help you get them. It will take a few minutes and once it's done, Barkeep will be running inside
-of Vagrant. You can then browse to **http://localhost:8080** to play with it.
-
-You can shut it all down later using `bundle exec vagrant halt`.
-
-Once you decide to use Barkeep for your team, you should deploy it to an Ubuntu web server. See the [Deploying
-Barkeep](https://github.com/ooyala/barkeep/wiki/Deploying-Barkeep) wiki page for more information.
+If you'd like to take Barkeep for a test-drive first or set up local development on your own machine you can
+quickly install it on a Vagrant VM. See the [Vagrant](https://github.com/ooyala/barkeep/wiki/Vagrant) wiki
+page for details.
 
 ### Docs
 
@@ -54,7 +46,7 @@ around developing Barkeep. You can email the group at
 
 ### Credits
 
-Barkeep was written by the following Ooyala engineers:
+Barkeep was written by the following engineers at Ooyala:
 
 * Bo Chen ([bo-chen](https://github.com/bo-chen))
 * Caleb Spare ([cespare](https://github.com/cespare))
@@ -62,22 +54,26 @@ Barkeep was written by the following Ooyala engineers:
 * Kevin Le ([bkad](https://github.com/bkad))
 * Phil Crosby ([philc](https://github.com/philc))
 
-and with contributions from other Ooyala engineers:
-
-* Brian Zhou ([zdyn](https://github.com/zdyn))
-* Manish Khettry ([mkhettry](https://github.com/mkhettry))
-* Noah Gibbs ([noahgibbs](https://github.com/noahgibbs))
-
-and community members:
+and with contributions from other Ooyalans and community members:
 
 * Alberto Leal ([albertoleal](https://github.com/albertoleal))
+* Alek Storm ([alekstorm](https://github.com/alekstorm))
 * Alice Kærast ([kaerast](https://github.com/kaerast))
+* Arturs Meisters ([kalifs](https://github.com/kalifs))
+* Brian Zhou ([zdyn](https://github.com/zdyn))
 * Dann Luciano ([dannluciano](https://github.com/dannluciano))
 * Dylan Tack ([dylantack](https://github.com/dylantack))
 * Fabio Kenji ([fkenji](https://github.com/fkenji))
+* Florian Unglaub ([funglaub](https://github.com/funglaub))
 * Guzmán Brasó ([guzmanbraso](https://github.com/guzmanbraso))
+* Jack Veenstra ([veenstra](https://github.com/veenstra))
+* Kazuhiro Yamada ([k-yamada](https://github.com/k-yamada))
 * Liron Yahdav ([lyahdav](https://github.com/lyahdav))
+* Manish Khettry ([mkhettry](https://github.com/mkhettry))
 * Michael Quinn ([mikejquinn](https://github.com/mikejquinn))
+* Michael Storm ([michaelstorm](https://github.com/michaelstorm))
+* Niklas Hambüchen ([nh2](https://github.com/nh2))
+* Noah Gibbs ([noahgibbs](https://github.com/noahgibbs))
 * Ron Toland ([mindbat](https://github.com/mindbat))
 
 Barkeep is released under [the MIT license](http://www.opensource.org/licenses/mit-license.php).

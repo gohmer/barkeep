@@ -28,6 +28,10 @@ BARKEEP_HOSTNAME = "ubuntu:8040"
 REDIS_HOST = "localhost"
 REDIS_PORT = 6379
 
+# These Redis databases are used by Barkeep for caching and Resque jobs. Redis uses integers for DB names.
+REDIS_DB = 0
+REDIS_DB_FOR_RESQUE = 1
+
 # A comma-separate list of OpenID provider URLs for signing in your users.
 # If you provide more than one, users will receive a UI allowing to pick which service to use to authenticate.
 # Besides Google, another popular OpenID endpoint is https://me.yahoo.com

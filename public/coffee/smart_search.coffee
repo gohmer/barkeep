@@ -74,7 +74,7 @@ class window.SmartSearch
       result.value = values
     result
 
-  # suggests keys see autocomplete
+  # suggests keys. See autocomplete.
   autocompleteKey: (incompleteKey, unrelatedPrefix, onSuggestionReceived) ->
     nokey = (incompleteKey == "")
     results = []
@@ -84,17 +84,21 @@ class window.SmartSearch
     @showTabCompleteHint(incompleteKey, results)
     onSuggestionReceived(results)
 
-  # suggests values see autocomplete
+  # suggests values. See autocomplete.
   autocompleteValue: (incompleteValue, key, unrelatedPrefix, onSuggestionReceived) ->
-    if key in ["authors:", "repos:"]
+    if key in ["authors:", "repos:", "branches:"]
       # regex to get value out of full label
       valueRegex = /^.*$/
       valueRegex = /<.*>/ if key == "authors:"
 
+      repos = ""
+      if key == "branches:" && (@searchString.indexOf("repos:") >= 0)
+        repos = /repos:\s*(\S+)\b/.exec(@searchString)[1]
+
       $.ajax
         type: "get"
         url: "/autocomplete/#{key[0..key.length-2]}"
-        data: { substring: incompleteValue }
+        data: { substring: incompleteValue, repos: repos }
         dataType: "json"
         success: (completion) =>
           fullValues = $.map completion.values, (x) ->

@@ -46,7 +46,7 @@ namespace :fezzik do
         :default_encoding => "utf-8")
     nginx_conf = template.render(Object.new,
         :hostname => hostname,
-        :unicorn_socket => env_settings[:unicorn_socket])
+        :port => env_settings[:barkeep_port])
     File.write("/tmp/#{app}/staged/config/system_setup_files/nginx_site.conf", nginx_conf)
   end
 
@@ -194,7 +194,7 @@ namespace :fezzik do
         if response_code < 200 || response_code >= 500
           raise "The remote server at #{url} is either not responding or giving 500's. " +
             "It may have had trouble starting. You can start troubleshooting by checking the logs in " +
-            "#{hostname}:#{deploy_to}/logs and #{hostname}/var/log/#{app}"
+            "#{hostname}:#{deploy_to}/current/logs and #{hostname}:/var/log/#{app}"
         end
       end
     rescue StandardError => error

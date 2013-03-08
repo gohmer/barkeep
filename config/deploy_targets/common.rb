@@ -16,6 +16,7 @@ module BarkeepDeploy
     # Note that these options use the "deploy_to" and "hostname" vars, so those must have been defined prior
     # to calling this function (e.g. via set :deploy_to, "path").
     common_options = {
+      barkeep_port: 8040,
       db_host: "localhost",
       db_port: 3306,
       db_name: "barkeep",
@@ -23,6 +24,8 @@ module BarkeepDeploy
       db_password: "",
       redis_host: "localhost",
       redis_port: 6379,
+      redis_db: 0,
+      redis_db_for_resque: 1,
       # This can be a comma-separated list of OPENID providers.
       openid_providers: "https://www.google.com/accounts/o8/ud",
       # This hostname is used when generating URLs to commits in emails.
